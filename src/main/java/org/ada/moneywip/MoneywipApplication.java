@@ -8,6 +8,7 @@ public class MoneywipApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MoneywipApplication.class, args);
+		// main 
 	}
 
 }
