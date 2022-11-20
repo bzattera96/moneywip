@@ -1,1 +1,9 @@
+org\ada\moneywip\entity\AsignacionObjetivo.class
+org\ada\moneywip\entity\Persona.class
+org\ada\moneywip\entity\MovimientosAhorro.class
+org\ada\moneywip\entity\Egresos.class
+org\ada\moneywip\entity\TipoIngreso.class
+org\ada\moneywip\entity\Objetivo.class
 org\ada\moneywip\MoneywipApplication.class
+org\ada\moneywip\entity\Ingresos.class
+org\ada\moneywip\entity\TipoEgreso.class
