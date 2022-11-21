@@ -1,4 +1,7 @@
 package org.ada.moneywip.repository;
 
-public interface AsignacionObjetivoRepository {
+import org.ada.moneywip.entity.AsignacionObjetivo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AsignacionObjetivoRepository extends JpaRepository <AsignacionObjetivo, Integer> {
 }
