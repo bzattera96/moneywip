@@ -1,4 +1,7 @@
 package org.ada.moneywip.repository;
 
-public interface EgresoRepository {
+import org.ada.moneywip.entity.Egreso;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EgresoRepository extends JpaRepository <Egreso, Integer>{
 }

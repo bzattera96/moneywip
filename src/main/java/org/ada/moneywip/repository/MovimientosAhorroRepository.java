@@ -1,4 +1,6 @@
 package org.ada.moneywip.repository;
 
-public interface MovimientosAhorroRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MovimientosAhorroRepository extends JpaRepository <MovimientosAhorroRepository, Integer> {
 }
