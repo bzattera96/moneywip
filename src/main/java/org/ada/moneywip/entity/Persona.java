@@ -32,16 +32,16 @@ public class Persona {
     @Column(nullable = false)
     private boolean estudia;
 
-    @OneToMany(mappedBy = "idPersona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<AsignacionObjetivo> asignacionObjetivo;
 
-    @OneToMany(mappedBy = "idPersona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<MovimientosAhorro> movimientosAhorro;
 
-    @OneToMany(mappedBy = "idPersona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Ingreso> ingreso;
 
-    @OneToMany(mappedBy = "idPersona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Egreso> egreso;
 
     public Persona() {

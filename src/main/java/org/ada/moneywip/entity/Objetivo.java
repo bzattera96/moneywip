@@ -2,6 +2,7 @@ package org.ada.moneywip.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 
@@ -20,21 +21,21 @@ public class Objetivo {
     private LocalDate fechaObj;
 
     @Column(nullable = false)
-    private double monto;
+    private Double monto;
 
     @Column(nullable = false)
-    private boolean activo;
+    private Boolean activo;
 
-    @OneToMany(mappedBy = "idObjetivo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private AsignacionObjetivo asignacionObjetivo;
+    @OneToMany(mappedBy = "objetivo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<AsignacionObjetivo> asignacionObjetivo;
 
-    @OneToMany(mappedBy = "idObjetivo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private MovimientosAhorro movimientosAhorro;
+    @OneToMany(mappedBy = "objetivo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<MovimientosAhorro> movimientosAhorro;
 
     public Objetivo() {
     }
 
-    public Objetivo(Integer id, String objetivo, LocalDate fechaObj, double monto, boolean activo, AsignacionObjetivo asignacionObjetivo, MovimientosAhorro movimientosAhorro) {
+    public Objetivo(Integer id, String objetivo, LocalDate fechaObj, Double monto, Boolean activo, List<AsignacionObjetivo> asignacionObjetivo, List<MovimientosAhorro> movimientosAhorro) {
         this.id = id;
         this.objetivo = objetivo;
         this.fechaObj = fechaObj;
@@ -64,11 +65,11 @@ public class Objetivo {
         return activo;
     }
 
-    public AsignacionObjetivo getAsignacionObjetivo() {
+    public List<AsignacionObjetivo> getAsignacionObjetivo() {
         return asignacionObjetivo;
     }
 
-    public MovimientosAhorro getMovimientosAhorro() {
+    public List<MovimientosAhorro> getMovimientosAhorro() {
         return movimientosAhorro;
     }
 }
