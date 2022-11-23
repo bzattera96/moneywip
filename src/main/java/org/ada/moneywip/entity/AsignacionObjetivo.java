@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 //cuando lo convierto en entidad, debo asignar una primary key
 
-@Table (name = "asignacionObjetivo")
+@Table (name = "asignacion_objetivo")
 
 
 //CREATE TABLE IF NOT EXISTS asignacion_objetivo (
@@ -19,7 +19,6 @@ public class AsignacionObjetivo {
 
 
     @Id  //Id corresponde a la primary key de mySQL, no puede ser NULL
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -34,7 +33,6 @@ public class AsignacionObjetivo {
     @JoinColumn (name = "id_persona", nullable = false)
     private Persona persona;
 
-
     //constructores
     public AsignacionObjetivo() {
     }
@@ -47,7 +45,6 @@ public class AsignacionObjetivo {
     }
 
     //getters
-
 
     public Integer getId() {
         return id;
