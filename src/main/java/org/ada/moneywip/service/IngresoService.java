@@ -27,7 +27,7 @@ public class IngresoService {
         this.personaRepository = personaRepository;
     }
 
-    public IngresoDTO create (IngresoDTO ingresoDTO, String personaDni) {
+    public IngresoDTO create (IngresoDTO ingresoDTO, String personaDni ) {
         Optional<Persona> persona = personaRepository.findById(personaDni);
         if(persona.isEmpty()){
             throw new ResourceNotFoundException();
@@ -56,24 +56,24 @@ public class IngresoService {
         ingresoRepository.save(ingresoToModify);
     }
 
-    public IngresoDTO retrieveById (String dni) throws Exception {
+    public IngresoDTO retrieveById (String dni){
         Optional<Ingreso> ingreso = ingresoRepository.findByPersona(dni);
         if (ingreso.isEmpty ()){
-            throw new Exception() ;
+          throw new ResourceNotFoundException();
         }
         return mapToDTO(ingreso.get());
     }
 
 
-    private Ingreso mapToEntity (IngresoDTO ingresoDTO, Persona persona){
-        Ingreso ingreso = new Ingreso(ingresoDTO.getId(), LocalDate.parse(ingresoDTO.getFecha(),DATE_TIME_FORMATTER),
-                ingresoDTO.getMonto(), ingresoDTO.getTipoIngreso(), ingresoDTO.getPersonaDni()); // preguntar como pasar a entidad
+    private Ingreso mapToEntity (IngresoDTO ingresoDTO,Persona persona){
+        Ingreso ingreso = new Ingreso( LocalDate.parse(ingresoDTO.getFecha(),DATE_TIME_FORMATTER),
+                ingresoDTO.getMonto(), ingresoDTO.getTipoIngreso(),persona);
         return ingreso;
     }
 
     private IngresoDTO mapToDTO (Ingreso ingreso){
-        IngresoDTO ingresoDTO = new IngresoDTO(ingreso.getId(), ingreso.getMonto(), ingreso.getPersona()
-                , ingreso.getTipoIngreso(), ingreso.getFecha().toString());
+        IngresoDTO ingresoDTO = new IngresoDTO(ingreso.getId(),ingreso.getFecha().toString(), ingreso.getMonto(),
+                ingreso.getTipoIngreso() ,ingreso.getPersona());
         return ingresoDTO;
     }
 
