@@ -22,7 +22,7 @@ public class TipoIngresoService {
     }
     public TipoIngresoDTO create (TipoIngresoDTO tipoIngresoDTO) {
         TipoIngreso tipoIngreso = mapToEntity(tipoIngresoDTO);
-        checkForExistingTipoIngreso(tipoIngreso.getIngreso());
+        checkForExistingTipoIngreso(tipoIngreso.getTipoIngreso());
         tipoIngreso = tipoIngresoRepository.save(tipoIngreso);
 
         return tipoIngresoDTO;
@@ -40,7 +40,7 @@ public class TipoIngresoService {
     }
 
     private TipoIngresoDTO mapToDTO(TipoIngreso tipoIngreso) {
-        TipoIngresoDTO tipoIngresoDTO = new TipoIngresoDTO(tipoIngreso.getId(), tipoIngreso.getTipoIngreso(), tipoIngreso.getIngreso());
+        TipoIngresoDTO tipoIngresoDTO = new TipoIngresoDTO(tipoIngreso.getId(), tipoIngreso.getTipoIngreso());
         return tipoIngresoDTO;
     }
 

@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 @Table (name = "ingresos")
 
 public class Ingreso {
+
     private static final DateTimeFormatter DATE_TIME_FORMATER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     @Id
@@ -36,8 +37,7 @@ public class Ingreso {
     public Ingreso() {
     }
 
-    public Ingreso(Integer id, LocalDate fecha, Double monto, TipoIngreso tipoIngreso, Persona persona) {
-        this.id = id;
+    public Ingreso( LocalDate fecha, Double monto, TipoIngreso tipoIngreso, Persona persona) {
         this.fecha = fecha;
         this.monto = monto;
         this.tipoIngreso = tipoIngreso;
