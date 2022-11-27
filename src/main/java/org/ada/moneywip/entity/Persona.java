@@ -1,6 +1,8 @@
 package org.ada.moneywip.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -47,7 +49,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String dni, String nombre, String apellido, String genero, String celular, int edad, boolean recibeIngresos, boolean estudia, List<AsignacionObjetivo> asignacionObjetivo, List<MovimientosAhorro> movimientosAhorro, List<Ingreso> ingreso, List<Egreso> egreso) {
+    public Persona(String dni, String nombre, String apellido, String genero, String celular, int edad, boolean recibeIngresos, boolean estudia) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -56,10 +58,6 @@ public class Persona {
         this.edad = edad;
         this.recibeIngresos = recibeIngresos;
         this.estudia = estudia;
-        this.asignacionObjetivo = asignacionObjetivo;
-        this.movimientosAhorro = movimientosAhorro;
-        this.ingreso = ingreso;
-        this.egreso = egreso;
     }
 
     public String getDni() {
@@ -86,11 +84,11 @@ public class Persona {
         return edad;
     }
 
-    public boolean isRecibeIngresos() {
+    public boolean getRecibeIngresos() {
         return recibeIngresos;
     }
 
-    public boolean isEstudia() {
+    public boolean getEstudia() {
         return estudia;
     }
 
@@ -108,5 +106,79 @@ public class Persona {
 
     public List<Egreso> getEgreso() {
         return egreso;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public void setRecibeIngresos(boolean recibeIngresos) {
+        this.recibeIngresos = recibeIngresos;
+    }
+
+    public void setEstudia(boolean estudia) {
+        this.estudia = estudia;
+    }
+
+    public void setAsignacionObjetivo(List<AsignacionObjetivo> asignacionObjetivo) {
+        this.asignacionObjetivo = asignacionObjetivo;
+    }
+
+    public void setMovimientosAhorro(List<MovimientosAhorro> movimientosAhorro) {
+        this.movimientosAhorro = movimientosAhorro;
+    }
+
+    public void setIngreso(List<Ingreso> ingreso) {
+        this.ingreso = ingreso;
+    }
+
+    public void setEgreso(List<Egreso> egreso) {
+        this.egreso = egreso;
+    }
+
+    public void modifyAttributeValue(String key, Object value) {
+        switch (key) {
+            case "nombre":
+                this.nombre = (String) value;
+                break;
+            case "apellido":
+                this.apellido = (String) value;
+                break;
+            case "genero":
+                this.genero = (String) value;
+                break;
+            case "celular":
+                this.celular = (String) value;
+                break;
+            case "edad":
+                this.edad = (int) value;
+                break;
+            case "recibe_ingresos":
+                this.recibeIngresos = (boolean) value;
+                break;
+            case "estudia":
+                this.estudia = (boolean) value;
+                break;
+        }
     }
 }
