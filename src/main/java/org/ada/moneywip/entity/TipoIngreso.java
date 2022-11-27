@@ -16,7 +16,8 @@ public class TipoIngreso {
     @Column(name = "tipo_ingreso", nullable = false)
     private String tipoIngreso;
 
-    @OneToMany(mappedBy = "tipoIngreso", fetch = FetchType.LAZY, cascade = CascadeType.ALL) //private list de tipoingreso List<Ingresos> en onetomany
+    @OneToMany(mappedBy = "tipoIngreso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //private list de tipoingreso List<Ingresos> en onetomany
     private List<Ingreso> ingreso;
 
     public TipoIngreso() {
@@ -38,5 +39,15 @@ public class TipoIngreso {
 
     public List<Ingreso> getIngreso() {
         return ingreso;
+    }
+
+
+    public void modifyAttributeValue(String key, Object value) {
+        switch (key) {
+            case "tipo_ingreso":
+                this.tipoIngreso = (String) value; //(String) me lo vuelve un string, casteo
+                break;
+
+        }
     }
 }

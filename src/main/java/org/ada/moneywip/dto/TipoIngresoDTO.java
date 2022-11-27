@@ -1,6 +1,9 @@
 package org.ada.moneywip.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import org.ada.moneywip.entity.Ingreso;
+
+import java.util.List;
 
 public class TipoIngresoDTO {
     private Integer id;
@@ -13,10 +16,12 @@ public class TipoIngresoDTO {
     }
 
     public Integer getId() {
+
         return id;
     }
 
     public String getTipoIngreso() {
+
         return tipoIngreso;
     }
 }
