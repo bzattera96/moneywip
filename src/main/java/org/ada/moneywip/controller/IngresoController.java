@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Map;
 
 @RestController
@@ -21,8 +22,8 @@ import java.util.Map;
 
 
         @PostMapping
-        public ResponseEntity create (@RequestBody IngresoDTO ingresoDTO, String personaId){
-            IngresoDTO createdIngresoDTO = ingresoService.create(ingresoDTO, personaId);
+        public ResponseEntity create (@RequestBody IngresoDTO ingresoDTO, String personaId, Integer tipoIngresoId){
+            IngresoDTO createdIngresoDTO = ingresoService.create(ingresoDTO, personaId, tipoIngresoId);
             return new ResponseEntity(ingresoDTO.getId(), HttpStatus.CREATED);
         }
 
