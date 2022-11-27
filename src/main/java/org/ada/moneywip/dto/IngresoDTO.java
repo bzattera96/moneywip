@@ -1,6 +1,8 @@
 package org.ada.moneywip.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import org.ada.moneywip.entity.Persona;
+import org.ada.moneywip.entity.TipoIngreso;
 
 public class IngresoDTO {
 
@@ -9,11 +11,15 @@ public class IngresoDTO {
     private Double monto;
     @JsonAlias("tipo_ingreso")
     private String tipoIngreso;
+    private String personaDni; // como pasar tipo ingreso y dni en service para entidad
 
-    public IngresoDTO(String fecha, Double monto, String tipoIngreso) {
+
+    public IngresoDTO(Integer id, String fecha, Double monto, String tipoIngreso, String personaDni) {
+        this.id = id;
         this.fecha = fecha;
         this.monto = monto;
         this.tipoIngreso = tipoIngreso;
+        this.personaDni = personaDni;
     }
 
     public Integer getId() {
@@ -30,5 +36,14 @@ public class IngresoDTO {
 
     public String getTipoIngreso() {
         return tipoIngreso;
+    }
+
+    public String getPersonaDni() {
+        return personaDni;
+
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

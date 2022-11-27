@@ -48,11 +48,11 @@ public class PersonaDTO {
         return edad;
     }
 
-    public boolean isRecibeIngresos() {
+    public boolean getRecibeIngresos() {
         return recibeIngresos;
     }
 
-    public boolean isEstudia() {
+    public boolean getEstudia() {
         return estudia;
     }
 }

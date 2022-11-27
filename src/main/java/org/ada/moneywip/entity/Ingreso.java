@@ -2,6 +2,7 @@ package org.ada.moneywip.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 @Entity
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 @Table (name = "ingresos")
 
 public class Ingreso {
+    private static final DateTimeFormatter DATE_TIME_FORMATER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,6 +42,17 @@ public class Ingreso {
         this.monto = monto;
         this.tipoIngreso = tipoIngreso;
         this.persona = persona;
+    }
+
+    public void modifyAttributeValue (String key, Object value){
+            switch (key){
+                case "fecha" :
+                    this.fecha= LocalDate.parse((String) value, DATE_TIME_FORMATER);
+                    break;
+                case "monto":
+                    this.monto = (double) value;
+                    break;
+            }
     }
 
     //getters
