@@ -23,10 +23,9 @@ public class TipoIngreso {
     public TipoIngreso() {
     }
 
-    public TipoIngreso(Integer id, String tipoIngreso, List<Ingreso> ingreso) {
+    public TipoIngreso(Integer id, String tipoIngreso) {
         this.id = id;
         this.tipoIngreso = tipoIngreso;
-        this.ingreso = ingreso;
     }
 
     public Integer getId() {
