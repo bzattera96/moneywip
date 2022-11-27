@@ -10,4 +10,6 @@ public class TipoIngresoService {
     public TipoIngresoService(TipoIngresoRepository tipoIngresoRepository) {
         this.tipoIngresoRepository = tipoIngresoRepository;
     }
+
+
 }
