@@ -20,8 +20,8 @@ public class TipoIngresoController {
 
     @PostMapping
     public ResponseEntity create(@RequestBody TipoIngresoDTO tipoIngresoDTO ) {
-        TipoIngresoDTO createTipoIngresoDTO = tipoIngresoService.create(tipoIngresoDTO);
-        return new ResponseEntity(tipoIngresoDTO.getId(), HttpStatus.CREATED);
+        TipoIngresoDTO createdTipoIngresoDTO = tipoIngresoService.create(tipoIngresoDTO);
+        return new ResponseEntity(createdTipoIngresoDTO.getId(), HttpStatus.CREATED); //debería darme el id autogenerado en la base de datos?
     }
 
     @GetMapping ("/{tipoIngreso}")

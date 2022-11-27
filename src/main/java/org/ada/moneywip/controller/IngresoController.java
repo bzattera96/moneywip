@@ -20,7 +20,7 @@ import java.util.Map;
         }
 
 
-
+        //si yo creo un post con los atributos no foráneos y el dni y el id del tipo ingreso, por qué no corre?
         @PostMapping
         public ResponseEntity create (@RequestBody IngresoDTO ingresoDTO, String personaId, Integer tipoIngresoId){
             IngresoDTO createdIngresoDTO = ingresoService.create(ingresoDTO, personaId, tipoIngresoId);

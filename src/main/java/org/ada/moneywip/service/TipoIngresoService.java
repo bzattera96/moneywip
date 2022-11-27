@@ -20,6 +20,7 @@ public class TipoIngresoService {
     public TipoIngresoService(TipoIngresoRepository tipoIngresoRepository) {
         this.tipoIngresoRepository = tipoIngresoRepository;
     }
+
     public TipoIngresoDTO create (TipoIngresoDTO tipoIngresoDTO) {
         TipoIngreso tipoIngreso = mapToEntity(tipoIngresoDTO);
         checkForExistingTipoIngreso(tipoIngreso.getTipoIngreso());

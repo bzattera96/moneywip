@@ -24,4 +24,8 @@ public class TipoIngresoDTO {
 
         return tipoIngreso;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

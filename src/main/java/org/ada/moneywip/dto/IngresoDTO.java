@@ -11,15 +11,14 @@ public class IngresoDTO {
     private Double monto;
     @JsonAlias("tipo_ingreso")
     private String tipoIngreso;
+    @JsonAlias("persona_dni")
     private String personaDni; // como pasar tipo ingreso y dni en service para entidad
 
 
-    public IngresoDTO(Integer id, String fecha, Double monto, String tipoIngreso, String personaDni) {
+    public IngresoDTO(Integer id, String fecha, Double monto) {
         this.id = id;
         this.fecha = fecha;
         this.monto = monto;
-        this.tipoIngreso = tipoIngreso;
-        this.personaDni = personaDni;
     }
 
     public Integer getId() {

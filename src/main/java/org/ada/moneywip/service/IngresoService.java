@@ -81,8 +81,7 @@ public class IngresoService {
     }
 
     private IngresoDTO mapToDTO (Ingreso ingreso){
-        IngresoDTO ingresoDTO = new IngresoDTO(ingreso.getId(),ingreso.getFecha().toString(), ingreso.getMonto(),
-                ingreso.getTipoIngreso().getTipoIngreso() ,ingreso.getPersona().getDni());
+        IngresoDTO ingresoDTO = new IngresoDTO(ingreso.getId(),ingreso.getFecha().toString(), ingreso.getMonto());
         return ingresoDTO;
     }
 
