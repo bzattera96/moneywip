@@ -3,6 +3,7 @@ package org.ada.moneywip.service;
 import org.ada.moneywip.dto.IngresoDTO;
 import org.ada.moneywip.entity.Ingreso;
 import org.ada.moneywip.entity.Persona;
+import org.ada.moneywip.exceptions.ResourceNotFoundException;
 import org.ada.moneywip.repository.IngresoRepository;
 import org.ada.moneywip.repository.PersonaRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -29,7 +30,7 @@ public class IngresoService {
     public IngresoDTO create (IngresoDTO ingresoDTO, String personaDni) {
         Optional<Persona> persona = personaRepository.findById(personaDni);
         if(persona.isEmpty()){
-            throw new ResourceNotFoundException ();
+            throw new ResourceNotFoundException();
         }
         Ingreso ingreso = mapToEntity(ingresoDTO, persona.get());
         ingreso = ingresoRepository.save(ingreso);
@@ -41,7 +42,7 @@ public class IngresoService {
         try {
             ingresoRepository.deleteById(ingresoId);
         } catch (EmptyResultDataAccessException e){
-            throw new ResourceNotFoudException();
+            throw new ResourceNotFoundException();
         }
     }
 
