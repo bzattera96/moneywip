@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 
-@RequestMapping(path = "/persona")
+@RequestMapping(path = "/personas")
 public class PersonaController {
     private final PersonaService personaService;
 

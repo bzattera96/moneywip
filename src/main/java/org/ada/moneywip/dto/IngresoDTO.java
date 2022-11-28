@@ -10,7 +10,7 @@ public class IngresoDTO {
     private String fecha; //el formato va en el service, si no seria LocalDate
     private Double monto;
     @JsonAlias("tipo_ingreso")
-    private String tipoIngreso;
+    private Integer tipoIngreso;
     @JsonAlias("persona_dni")
     private String personaDni; // como pasar tipo ingreso y dni en service para entidad
 
@@ -33,7 +33,7 @@ public class IngresoDTO {
         return monto;
     }
 
-    public String getTipoIngreso() {
+    public Integer getTipoIngreso() {
         return tipoIngreso;
     }
 

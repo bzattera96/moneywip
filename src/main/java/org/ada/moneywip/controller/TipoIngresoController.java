@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 
-@RequestMapping(path = "/tipo-ingreso")
+@RequestMapping(path = "/tipos-ingreso") //tipos-ingreso
 public class TipoIngresoController {
     private final TipoIngresoService tipoIngresoService;
 
@@ -24,19 +24,19 @@ public class TipoIngresoController {
         return new ResponseEntity(createdTipoIngresoDTO.getId(), HttpStatus.CREATED); //debería darme el id autogenerado en la base de datos?
     }
 
-    @GetMapping ("/{tipoIngreso}")
-    public ResponseEntity retrieveById(@PathVariable String tipoIngreso){
-        TipoIngresoDTO tipoIngresoDTO = tipoIngresoService.retrieveByTipoIngreso(tipoIngreso);
+    @GetMapping ("/{tipoIngresoId}")
+    public ResponseEntity retrieveById(@PathVariable Integer tipoIngresoId){
+        TipoIngresoDTO tipoIngresoDTO = tipoIngresoService.retrieveByTipoIngresoId(tipoIngresoId);
             return new ResponseEntity(tipoIngresoDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{tipoIngreso}")
-    public ResponseEntity delete(@PathVariable String tipoIngreso) {
-        tipoIngresoService.delete(tipoIngreso);
+    @DeleteMapping("/{tipoIngresoId}") //eliminar por Id, todo lo que no es post que se crea con autogenerado
+    public ResponseEntity delete(@PathVariable Integer tipoIngresoId) {
+        tipoIngresoService.delete(tipoIngresoId);
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PatchMapping("/{tipoIngreso}")
+    @PatchMapping("/{tipoIngresoId}")
     public ResponseEntity modify (@PathVariable Integer tipoIngresoId, @RequestBody Map<String, Object> fieldsToModify){ //object porque puede ser String, numero, integer, etc
         tipoIngresoService.modify(tipoIngresoId, fieldsToModify);
         return new ResponseEntity(HttpStatus.OK);

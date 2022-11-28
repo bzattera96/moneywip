@@ -45,17 +45,17 @@ public class TipoIngresoService {
         return tipoIngresoDTO;
     }
 
-    public TipoIngresoDTO retrieveByTipoIngreso(String tipoIngresoNombre) {
-        Optional<TipoIngreso> tipoIngreso = tipoIngresoRepository.findByTipoIngreso(tipoIngresoNombre);
+    public TipoIngresoDTO retrieveByTipoIngresoId(Integer tipoIngresoId) {
+        Optional<TipoIngreso> tipoIngreso = tipoIngresoRepository.findById(tipoIngresoId);
         if (tipoIngreso.isEmpty()) {
             throw new ResourceNotFoundException();
         }
         return mapToDTO(tipoIngreso.get());
     }
 
-    public void delete(String tipoIngreso) {
+    public void delete(Integer tipoIngresoId) {
         try {
-            tipoIngresoRepository.deleteByTipoIngreso(tipoIngreso);
+            tipoIngresoRepository.deleteById(tipoIngresoId);
         } catch (EmptyResultDataAccessException e) {
             throw new ResourceNotFoundException();
         }
@@ -68,6 +68,7 @@ public class TipoIngresoService {
         }
         TipoIngreso tipoIngresoAModificar = tipoIngreso.get();
         camposAModificar.forEach((key, value) -> tipoIngresoAModificar.modifyAttributeValue(key, value));
+        tipoIngresoRepository.save(tipoIngresoAModificar);
     }
 
 

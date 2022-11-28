@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 
-    @RequestMapping(path = "/ingreso")
+    @RequestMapping(path = "/personas/{personaDni}/ingresos")
     public class IngresoController {
         private final IngresoService ingresoService;
 
@@ -19,20 +19,17 @@ import java.util.Map;
             this.ingresoService = ingresoService;
         }
 
-
-        //si yo creo un post con los atributos no foráneos y el dni y el id del tipo ingreso, por qué no corre?
         @PostMapping
-        public ResponseEntity create (@RequestBody IngresoDTO ingresoDTO, String personaId, Integer tipoIngresoId){
-            IngresoDTO createdIngresoDTO = ingresoService.create(ingresoDTO, personaId, tipoIngresoId);
+        public ResponseEntity create (@RequestBody IngresoDTO ingresoDTO, @PathVariable String personaDni){
+            IngresoDTO createdIngresoDTO = ingresoService.create(ingresoDTO);
             return new ResponseEntity(ingresoDTO.getId(), HttpStatus.CREATED);
         }
 
-        @GetMapping ("/{personaDni}")
-        public ResponseEntity retrieveById (@PathVariable String personaDni){
-                IngresoDTO ingresoDTO = ingresoService.retrieveById(personaDni);
+        @GetMapping ("/{ingresoId}") //get general, va con list y solo dni, != si uso el id de la persona + id del ingreso, uno solo
+        public ResponseEntity retrieveById (@PathVariable Integer ingresoId){
+                IngresoDTO ingresoDTO = ingresoService.retrieveById(ingresoId);
                 return new ResponseEntity(ingresoDTO, HttpStatus.OK);
-
-            }
+        }
 
 
         @PatchMapping ("/{ingresoId}")

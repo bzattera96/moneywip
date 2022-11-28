@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -32,19 +33,19 @@ public class IngresoService {
         this.tipoIngresoRepository = tipoIngresoRepository;
     }
 
-    public IngresoDTO create (IngresoDTO ingresoDTO, String personaDni, Integer tipoIngresoId ) {
-        Optional<Persona> persona = personaRepository.findById(personaDni);
+    public IngresoDTO create (IngresoDTO ingresoDTO) {
+        Optional<Persona> persona = personaRepository.findById(ingresoDTO.getPersonaDni());
         if(persona.isEmpty()){
             throw new ResourceNotFoundException();
         }
-        Optional<TipoIngreso> tipoIngreso = tipoIngresoRepository.findById(tipoIngresoId);
+        Optional<TipoIngreso> tipoIngreso = tipoIngresoRepository.findById(ingresoDTO.getTipoIngreso());
         if(tipoIngreso.isEmpty()){
             throw new ResourceNotFoundException();
         }
         Ingreso ingreso = mapToEntity(ingresoDTO, persona.get(),tipoIngreso.get());
         ingreso = ingresoRepository.save(ingreso);
         ingresoDTO.setId(ingreso.getId());
-     return ingresoDTO;
+        return ingresoDTO;
     }
 
     public void delete (Integer ingresoId){
@@ -65,8 +66,8 @@ public class IngresoService {
         ingresoRepository.save(ingresoToModify);
     }
 
-    public IngresoDTO retrieveById (String dni){
-        Optional<Ingreso> ingreso = ingresoRepository.findByPersona(dni);
+    public IngresoDTO retrieveById (Integer ingresoId){
+        Optional<Ingreso> ingreso = ingresoRepository.findById(ingresoId);
         if (ingreso.isEmpty ()){
           throw new ResourceNotFoundException();
         }
@@ -75,8 +76,8 @@ public class IngresoService {
 
 
     private Ingreso mapToEntity (IngresoDTO ingresoDTO, Persona persona, TipoIngreso tipoIngreso){
-        Ingreso ingreso = new Ingreso( LocalDate.parse(ingresoDTO.getFecha(),DATE_TIME_FORMATTER),
-                ingresoDTO.getMonto(), tipoIngreso,persona);
+        Ingreso ingreso = new Ingreso(LocalDate.parse(ingresoDTO.getFecha(),DATE_TIME_FORMATTER),
+                ingresoDTO.getMonto(), tipoIngreso, persona);
         return ingreso;
     }
 

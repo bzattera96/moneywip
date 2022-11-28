@@ -65,6 +65,7 @@ public class PersonaService {
         }
         Persona personaAModificar = persona.get();
         camposAModificar.forEach((key, value) -> personaAModificar.modifyAttributeValue(key, value));
+        personaRepository.save(personaAModificar);
     }
 
     private void checkForExistingPerson(String personaDni) {
