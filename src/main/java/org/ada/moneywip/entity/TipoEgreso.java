@@ -38,6 +38,15 @@ PRIMARY KEY(id)
         this.egresos = egresos;
     }
 
+    public void modifyAttributeValue(String key, Object value) {
+        switch (key) {
+            case "tipo_egreso":
+                this.tipoEgreso = (String) value; //(String) me lo vuelve un string, casteo
+                break;
+
+        }
+    }
+
     public Integer getId() {
         return id;
     }

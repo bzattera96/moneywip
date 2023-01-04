@@ -23,7 +23,7 @@ public class AsignacionObjetivo {
     private Integer id;
 
     @Column (nullable = false)
-    private boolean activo;
+    private Boolean activo;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "id_objetivo", nullable = false)
@@ -37,7 +37,7 @@ public class AsignacionObjetivo {
     public AsignacionObjetivo() {
     }
 
-    public AsignacionObjetivo(Integer id, boolean activo, Objetivo objetivo, Persona persona) {
+    public AsignacionObjetivo(Integer id, Boolean activo, Objetivo objetivo, Persona persona) {
         this.id = id;
         this.activo = activo;
         this.objetivo = objetivo;
@@ -50,7 +50,7 @@ public class AsignacionObjetivo {
         return id;
     }
 
-    public boolean getActivo() {
+    public Boolean getActivo() {
         return activo;
     }
 

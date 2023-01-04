@@ -28,6 +28,15 @@ public class TipoIngreso {
         this.tipoIngreso = tipoIngreso;
     }
 
+    public void modifyAttributeValue(String key, Object value) {
+        switch (key) {
+            case "tipo_ingreso":
+                this.tipoIngreso = (String) value; //(String) me lo vuelve un string, casteo
+                break;
+
+        }
+    }
+
     public Integer getId() {
         return id;
     }
@@ -38,15 +47,5 @@ public class TipoIngreso {
 
     public List<Ingreso> getIngreso() {
         return ingreso;
-    }
-
-
-    public void modifyAttributeValue(String key, Object value) {
-        switch (key) {
-            case "tipo_ingreso":
-                this.tipoIngreso = (String) value; //(String) me lo vuelve un string, casteo
-                break;
-
-        }
     }
 }

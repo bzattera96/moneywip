@@ -45,7 +45,7 @@ public class Objetivo {
         this.movimientosAhorro = movimientosAhorro;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -57,11 +57,11 @@ public class Objetivo {
         return fechaObj;
     }
 
-    public double getMonto() {
+    public Double getMonto() {
         return monto;
     }
 
-    public boolean getActivo() {
+    public Boolean getActivo() {
         return activo;
     }
 

@@ -28,7 +28,7 @@ public class MovimientosAhorro {
     private LocalDate fecha;
 
     @Column (nullable = false)
-    private double monto;
+    private Double monto;
 
     @ManyToOne(fetch = FetchType.EAGER )
     @JoinColumn (name= "id_persona", nullable = false)
@@ -41,7 +41,7 @@ public class MovimientosAhorro {
     public MovimientosAhorro() {
     }
 
-    public MovimientosAhorro(Integer id, LocalDate fecha, double monto, Persona persona, Objetivo objetivo) {
+    public MovimientosAhorro(Integer id, LocalDate fecha, Double monto, Persona persona, Objetivo objetivo) {
         this.id = id;
         this.fecha = fecha;
         this.monto = monto;
@@ -49,11 +49,15 @@ public class MovimientosAhorro {
         this.objetivo = objetivo;
     }
 
-    public int getId() {return id;}
+    public int getId() {
+        return id;
+    }
 
-    public LocalDate getFecha() {return fecha;}
+    public LocalDate getFecha() {
+        return fecha;
+    }
 
-    public double getMonto() {
+    public Double getMonto() {
         return monto;
     }
 
