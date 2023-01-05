@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 
 public class EgresoDTO {
 
-    private String id;
+    private Integer id;
     private String fecha;
     private Double monto;
     @JsonAlias("tipo_egreso")
@@ -12,12 +12,13 @@ public class EgresoDTO {
     @JsonAlias("persona_dni")
     private String personaDni;
 
-    public EgresoDTO(String fecha, Double monto) {
+    public EgresoDTO(Integer id, String fecha, Double monto) {
+        this.id = id;
         this.fecha = fecha;
         this.monto = monto;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -37,7 +38,7 @@ public class EgresoDTO {
         return personaDni;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

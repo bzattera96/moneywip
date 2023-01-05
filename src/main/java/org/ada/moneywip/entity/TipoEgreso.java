@@ -32,7 +32,7 @@ PRIMARY KEY(id)
     public TipoEgreso() {
     }
 
-    public TipoEgreso(Integer id, String tipoEgreso, List<Egreso> egresos) {
+    public TipoEgreso(Integer id, String tipoEgreso) {
         this.id = id;
         this.tipoEgreso = tipoEgreso;
         this.egresos = egresos;
