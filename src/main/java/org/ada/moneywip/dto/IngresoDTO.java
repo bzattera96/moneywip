@@ -1,8 +1,6 @@
 package org.ada.moneywip.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import org.ada.moneywip.entity.Persona;
-import org.ada.moneywip.entity.TipoIngreso;
 
 public class IngresoDTO {
 

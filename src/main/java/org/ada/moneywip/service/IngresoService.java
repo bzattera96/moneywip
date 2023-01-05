@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -74,7 +73,6 @@ public class IngresoService {
         return mapToDTO(ingreso.get());
     }
 
-
     private Ingreso mapToEntity (IngresoDTO ingresoDTO, Persona persona, TipoIngreso tipoIngreso){
         Ingreso ingreso = new Ingreso(LocalDate.parse(ingresoDTO.getFecha(),DATE_TIME_FORMATTER),
                 ingresoDTO.getMonto(), tipoIngreso, persona);
@@ -85,8 +83,4 @@ public class IngresoService {
         IngresoDTO ingresoDTO = new IngresoDTO(ingreso.getId(),ingreso.getFecha().toString(), ingreso.getMonto());
         return ingresoDTO;
     }
-
-
-
 }
-

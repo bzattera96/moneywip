@@ -31,13 +31,12 @@ public class Ingreso {
     @JoinColumn (name = "id_persona", nullable = false)
     private Persona persona;
 
-
     //constructores
 
     public Ingreso() {
     }
 
-    public Ingreso( LocalDate fecha, Double monto, TipoIngreso tipoIngreso, Persona persona) {
+    public Ingreso(LocalDate fecha, Double monto, TipoIngreso tipoIngreso, Persona persona) {
         this.fecha = fecha;
         this.monto = monto;
         this.tipoIngreso = tipoIngreso;

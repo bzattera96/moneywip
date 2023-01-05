@@ -37,7 +37,7 @@ public class Egreso {
     public Egreso() {
     }
 
-    public Egreso(Integer id, LocalDate fecha, Double monto, TipoEgreso tipoEgreso, Persona persona) {
+    public Egreso(LocalDate fecha, Double monto, TipoEgreso tipoEgreso, Persona persona) {
         this.id = id;
         this.fecha = fecha;
         this.monto = monto;
