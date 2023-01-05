@@ -10,8 +10,6 @@ public class AsigancionObjetivoDTO {
     private String idPersona;
     @JsonAlias("id_objetivo")
     private Integer idObjetivo;
-    //preguntar por el idObj.
-
 
     public AsigancionObjetivoDTO(boolean activo, String idPersona, Integer idObjetivo) {
         this.activo = activo;

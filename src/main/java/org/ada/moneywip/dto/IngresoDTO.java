@@ -39,7 +39,6 @@ public class IngresoDTO {
 
     public String getPersonaDni() {
         return personaDni;
-
     }
 
     public void setId(Integer id) {

@@ -30,7 +30,7 @@ public class ObjetivoDTO {
         return monto;
     }
 
-    public boolean isActivo() {
+    public boolean getActivo() {
         return activo;
     }
 }
