@@ -2,20 +2,20 @@ package org.ada.moneywip.dto;
 
 public class MovimientosAhorroDTO {
 
-    private String id;
+    private Integer id;
     private String fecha;
     private double monto;
     private String persona;
-    private String objetivo; // preguntar si ponemos objetivo en dto
+    private Integer objetivo;
 
-    public MovimientosAhorroDTO( String fecha, double monto, String persona, String objetivo) { // agrego id?
+    public MovimientosAhorroDTO(String fecha, double monto, String persona, Integer objetivo) {
         this.fecha = fecha;
         this.monto = monto;
         this.persona = persona;
         this.objetivo = objetivo;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -31,7 +31,7 @@ public class MovimientosAhorroDTO {
         return persona;
     }
 
-    public String getObjetivo() {
+    public Integer getObjetivo() {
         return objetivo;
     }
 }

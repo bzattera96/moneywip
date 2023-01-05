@@ -16,12 +16,10 @@ public class TipoIngresoDTO {
     }
 
     public Integer getId() {
-
         return id;
     }
 
     public String getTipoIngreso() {
-
         return tipoIngreso;
     }
 
