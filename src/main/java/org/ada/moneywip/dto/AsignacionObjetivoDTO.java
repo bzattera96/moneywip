@@ -2,7 +2,7 @@ package org.ada.moneywip.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 
-public class AsigancionObjetivoDTO {
+public class AsignacionObjetivoDTO {
 
     private Integer id;
     private boolean activo;
@@ -11,13 +11,18 @@ public class AsigancionObjetivoDTO {
     @JsonAlias("id_objetivo")
     private Integer idObjetivo;
 
-    public AsigancionObjetivoDTO(boolean activo, String idPersona, Integer idObjetivo) {
+
+    public AsignacionObjetivoDTO(boolean activo) {
         this.activo = activo;
-        this.idPersona = idPersona;
-        this.idObjetivo = idObjetivo;
+
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public boolean getActivo() {
+
         return activo;
     }
 
@@ -25,7 +30,7 @@ public class AsigancionObjetivoDTO {
         return idPersona;
     }
 
-    public int getIdObjetivo() {
+    public Integer getIdObjetivo() {
         return idObjetivo;
     }
 }
