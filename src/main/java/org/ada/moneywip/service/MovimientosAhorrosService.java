@@ -1,9 +1,8 @@
 package org.ada.moneywip.service;
-import org.ada.moneywip.dto.IngresoDTO;
 import org.ada.moneywip.dto.MovimientosAhorroDTO;
 import org.ada.moneywip.entity.*;
 import org.ada.moneywip.repository.*;
-import org.ada.moneywip.repository.exceptions.ResourceNotFoundException;
+import org.ada.moneywip.exceptions.ResourceNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 

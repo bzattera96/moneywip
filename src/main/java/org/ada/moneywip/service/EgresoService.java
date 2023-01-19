@@ -2,7 +2,7 @@ package org.ada.moneywip.service;
 
 import org.ada.moneywip.dto.EgresoDTO;
 import org.ada.moneywip.entity.*;
-import org.ada.moneywip.repository.exceptions.ResourceNotFoundException;
+import org.ada.moneywip.exceptions.ResourceNotFoundException;
 import org.ada.moneywip.repository.EgresoRepository;
 import org.ada.moneywip.repository.PersonaRepository;
 import org.ada.moneywip.repository.TipoEgresoRepository;

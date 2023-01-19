@@ -1,4 +1,4 @@
-package org.ada.moneywip.repository.exceptions;
+package org.ada.moneywip.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
     public static final String MESSAGE = "El recurso consultado no existe.";

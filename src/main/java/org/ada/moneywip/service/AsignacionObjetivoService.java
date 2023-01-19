@@ -5,7 +5,7 @@ import org.ada.moneywip.entity.AsignacionObjetivo;
 import org.ada.moneywip.entity.Objetivo;
 import org.ada.moneywip.entity.Persona;
 import org.ada.moneywip.repository.AsignacionObjetivoRepository;
-import org.ada.moneywip.repository.exceptions.ResourceNotFoundException;
+import org.ada.moneywip.exceptions.ResourceNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 

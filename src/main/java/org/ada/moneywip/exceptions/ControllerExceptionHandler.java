@@ -1,4 +1,4 @@
-package org.ada.moneywip.repository.exceptions;
+package org.ada.moneywip.exceptions;
 
 
 import org.springframework.http.HttpStatus;
