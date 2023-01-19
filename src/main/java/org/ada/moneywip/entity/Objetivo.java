@@ -35,14 +35,12 @@ public class Objetivo {
     public Objetivo() {
     }
 
-    public Objetivo(Integer id, String objetivo, LocalDate fechaObj, Double monto, Boolean activo, List<AsignacionObjetivo> asignacionObjetivo, List<MovimientosAhorro> movimientosAhorro) {
+    public Objetivo(Integer id, String objetivo, LocalDate fechaObj, Double monto, Boolean activo) {
         this.id = id;
         this.objetivo = objetivo;
         this.fechaObj = fechaObj;
         this.monto = monto;
         this.activo = activo;
-        this.asignacionObjetivo = asignacionObjetivo;
-        this.movimientosAhorro = movimientosAhorro;
     }
 
     public Integer getId() {
@@ -71,5 +69,19 @@ public class Objetivo {
 
     public List<MovimientosAhorro> getMovimientosAhorro() {
         return movimientosAhorro;
+    }
+
+    public void modifyAttributeValue(String key, Object value) {
+        switch (key) {
+            case "objetivo":
+                this.objetivo = (String) value;
+                break;
+            case "fechaObj":
+                this.fechaObj = (LocalDate) value;
+                break;
+            case "monto":
+                this.monto = (Double) value;
+                break;
+        }
     }
 }
