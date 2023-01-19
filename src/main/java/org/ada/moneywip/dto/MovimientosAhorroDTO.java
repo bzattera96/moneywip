@@ -5,14 +5,12 @@ public class MovimientosAhorroDTO {
     private Integer id;
     private String fecha;
     private double monto;
-    private String persona;
+    private String personaDni;
     private Integer objetivo;
 
-    public MovimientosAhorroDTO(String fecha, double monto, String persona, Integer objetivo) {
+    public MovimientosAhorroDTO(String fecha, double monto) {
         this.fecha = fecha;
         this.monto = monto;
-        this.persona = persona;
-        this.objetivo = objetivo;
     }
 
     public Integer getId() {
@@ -27,11 +25,15 @@ public class MovimientosAhorroDTO {
         return monto;
     }
 
-    public String getPersona() {
-        return persona;
+    public String getPersonaDni() {
+        return personaDni;
     }
 
     public Integer getObjetivo() {
         return objetivo;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
