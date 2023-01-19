@@ -4,7 +4,7 @@ import org.ada.moneywip.dto.IngresoDTO;
 import org.ada.moneywip.entity.Ingreso;
 import org.ada.moneywip.entity.Persona;
 import org.ada.moneywip.entity.TipoIngreso;
-import org.ada.moneywip.exceptions.ResourceNotFoundException;
+import org.ada.moneywip.repository.exceptions.ResourceNotFoundException;
 import org.ada.moneywip.repository.IngresoRepository;
 import org.ada.moneywip.repository.PersonaRepository;
 import org.ada.moneywip.repository.TipoIngresoRepository;
