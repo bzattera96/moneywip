@@ -22,15 +22,15 @@ public class AsignacionObjetivo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private Boolean activo;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "id_objetivo", nullable = false)
+    @JoinColumn(name = "id_objetivo", nullable = false)
     private Objetivo objetivo;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "id_persona", nullable = false)
+    @JoinColumn(name = "id_persona", nullable = false)
     private Persona persona;
 
     //constructores
@@ -61,5 +61,19 @@ public class AsignacionObjetivo {
     public Persona getPersona() {
         return persona;
     }
-}
 
+    public void modifyAttributeValue(String key, Object value) {
+        switch (key) {
+            case "activo":
+                this.activo = (Boolean) value;
+                break;
+            case "objetivo":
+                this.objetivo = (Objetivo) value;
+                break;
+            case "persona":
+                this.persona = (Persona) value;
+                break;
+        }
+    }
+
+}
