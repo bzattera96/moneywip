@@ -3,6 +3,7 @@ package org.ada.moneywip.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 /*CREATE TABLE IF NOT EXISTS movimientos_ahorro (
 id INT AUTO_INCREMENT NOT NULL,
@@ -19,6 +20,8 @@ CONSTRAINT fk_movimientos_ahorro_objetivo_idx
 @Entity
 @Table (name= "movimientos_ahorro")
 public class MovimientosAhorro {
+
+    private static final DateTimeFormatter DATE_TIME_FORMATER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +52,8 @@ public class MovimientosAhorro {
         this.objetivo = objetivo;
     }
 
+
+
     public int getId() {
         return id;
     }
@@ -67,5 +72,22 @@ public class MovimientosAhorro {
 
     public Objetivo getObjetivo() {
         return objetivo;
+    }
+
+    public void modifyAttributeValue(String key, Object value) {
+        switch (key){
+            case "fecha" :
+                this.fecha= LocalDate.parse((String) value, DATE_TIME_FORMATER);
+                break;
+            case "monto":
+                this.monto = (double) value;
+                break;
+            case "persona"  :
+                this.persona = (Persona) value;
+                break;
+            case "objetivo"   :
+                this.objetivo =(Objetivo) value;
+                break;
+        }
     }
 }

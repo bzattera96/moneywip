@@ -1,4 +1,4 @@
-package org.ada.moneywip.exceptions;
+package org.ada.moneywip.repository.exceptions;
 
 public class ExistingResourceException extends RuntimeException {
     public static final String MESSAGE = "El recurso que se está intentando crear, ya existe";
