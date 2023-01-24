@@ -1,17 +1,47 @@
 package org.ada.moneywip.controller;
 
+import org.ada.moneywip.dto.EgresoDTO;
+import org.ada.moneywip.dto.IngresoDTO;
 import org.ada.moneywip.service.EgresoService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import java.net.PortUnreachableException;
+import java.util.Map;
 
 @RestController
-@RequestMapping (path = "/egreso")
 
-public class EgresoController {
+    @RequestMapping (path = "/personas/{personaDni}/egresos")
+     public class EgresoController {
 
-    private final EgresoService egresoService;
+          private final EgresoService egresoService;
 
-    public EgresoController(EgresoService egresoService) {
-        this.egresoService = egresoService;
+    public EgresoController(EgresoService egresoService){
+    this.egresoService = egresoService;
     }
+   @PostMapping
+    public ResponseEntity create (@RequestBody EgresoDTO egresoDTO , @PathVariable String personaDni){
+        EgresoDTO createdEgresoDTO= egresoService.create(egresoDTO);
+        return new ResponseEntity(egresoDTO.getId(), HttpStatus.CREATED);
+    }
+    @GetMapping ("/{egresoId}")
+    public ResponseEntity retrieveById (@PathVariable Integer egresoId){
+        EgresoDTO egresoDTO = egresoService.retrieveById(egresoId);
+        return new ResponseEntity(egresoDTO, HttpStatus.OK);
+    }
+
+    @PatchMapping ("/{egresoId}")
+    public ResponseEntity modify (@PathVariable Integer egresoId, @RequestBody Map<String , Object> camposAModificar){
+        egresoService.modify(egresoId, camposAModificar);
+        return  new ResponseEntity(HttpStatus.OK);
+    }
+    @DeleteMapping ("/{egresoId}")
+    public ResponseEntity delete (@PathVariable Integer egresoId){
+        egresoService.delete(egresoId);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
 }
