@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 
-@RequestMapping(path = "/tipos-egresos")
+@RequestMapping(path = "/tipos-egreso")
 public class TipoEgresoController {
     private final TipoEgresoService tipoEgresoService;
 
@@ -26,18 +26,18 @@ public class TipoEgresoController {
         return new ResponseEntity(createdTipoEgresoDTO.getId(), HttpStatus.CREATED);
     }
 
-    @GetMapping ("/{tipoegresoId}")
+    @GetMapping ("/{tipoEgresoId}")
     public ResponseEntity retrieveById(@PathVariable Integer tipoEgresoId){
         TipoEgresoDTO tipoEgresoDTO = tipoEgresoService.retrieveByTipoEgresoId(tipoEgresoId);
         return new ResponseEntity(tipoEgresoDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping ("/{tipoegresoId}")
+    @DeleteMapping ("/{tipoEgresoId}")
     public ResponseEntity delete (@PathVariable Integer tipoEgresoId){
         tipoEgresoService.delete(tipoEgresoId);
         return new ResponseEntity(HttpStatus.OK);
     }
-    @PatchMapping ("/{tipoegresoId}")
+    @PatchMapping ("/{tipoEgresoId}")
     public ResponseEntity modify (@PathVariable Integer tipoEgresoId, @RequestBody Map<String,Object> fieldsToModify){
         tipoEgresoService.modify(tipoEgresoId, fieldsToModify);
         return new ResponseEntity(HttpStatus.OK);

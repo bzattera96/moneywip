@@ -13,10 +13,12 @@ public class IngresoDTO {
     private String personaDni; // como pasar tipo ingreso y dni en service para entidad
 
 
-    public IngresoDTO(Integer id, String fecha, Double monto) {
+    public IngresoDTO(Integer id, String fecha, Double monto, Integer tipoIngreso, String personaDni) {
         this.id = id;
         this.fecha = fecha;
         this.monto = monto;
+        this.tipoIngreso = tipoIngreso;
+        this.personaDni = personaDni;
     }
 
     public Integer getId() {

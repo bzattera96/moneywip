@@ -25,13 +25,13 @@ public class ObjetivoController {
         return new ResponseEntity(objetivoDTO.getId(), HttpStatus.CREATED);
     }
 
-    @GetMapping("/{Id}")
+    @GetMapping("/{id}")
     public ResponseEntity retrieveById(@PathVariable Integer id) {
         ObjetivoDTO objetivoDTO = objetivoService.retrieveByObjetivoId(id);
         return new ResponseEntity(objetivoDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{Id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {
         objetivoService.delete(id);
         return new ResponseEntity(HttpStatus.OK);

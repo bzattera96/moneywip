@@ -76,7 +76,7 @@ public class EgresoService {
     }
 
     private EgresoDTO mapToDTO (Egreso egreso){
-        EgresoDTO egresoDTO = new EgresoDTO(egreso.getId(),egreso.getFecha().toString(), egreso.getMonto());
+        EgresoDTO egresoDTO = new EgresoDTO(egreso.getId(),egreso.getFecha().toString(), egreso.getMonto(), egreso.getTipoEgreso().getId(), egreso.getPersona().getDni());
         return egresoDTO;
     }
 }

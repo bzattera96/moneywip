@@ -76,7 +76,7 @@ public class Objetivo {
             case "objetivo":
                 this.objetivo = (String) value;
                 break;
-            case "fechaObj":
+            case "fecha_obj":
                 this.fechaObj = (LocalDate) value;
                 break;
             case "monto":

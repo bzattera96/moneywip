@@ -12,10 +12,12 @@ public class EgresoDTO {
     @JsonAlias("persona_dni")
     private String personaDni;
 
-    public EgresoDTO(Integer id, String fecha, Double monto) {
+    public EgresoDTO(Integer id, String fecha, Double monto, Integer tipoEgreso, String personaDni) {
         this.id = id;
         this.fecha = fecha;
         this.monto = monto;
+        this.tipoEgreso = tipoEgreso;
+        this.personaDni = personaDni;
     }
 
     public Integer getId() {

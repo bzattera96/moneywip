@@ -1,13 +1,16 @@
 package org.ada.moneywip.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 public class ObjetivoDTO {
     private Integer id;
     private String objetivo;
+    @JsonAlias("fecha_obj")
     private String fechaObj;
-    private double monto;
-    private boolean activo;
+    private Double monto;
+    private Boolean activo;
 
-    public ObjetivoDTO(String objetivo, String fechaObj, double monto, boolean activo) {
+    public ObjetivoDTO(String objetivo, String fechaObj, Double monto, Boolean activo) {
         this.objetivo = objetivo;
         this.fechaObj = fechaObj;
         this.monto = monto;
@@ -26,11 +29,11 @@ public class ObjetivoDTO {
         return fechaObj;
     }
 
-    public double getMonto() {
+    public Double getMonto() {
         return monto;
     }
 
-    public boolean getActivo() {
+    public Boolean getActivo() {
         return activo;
     }
 }

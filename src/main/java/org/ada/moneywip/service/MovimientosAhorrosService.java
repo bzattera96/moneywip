@@ -71,8 +71,7 @@ public class MovimientosAhorrosService {
     }
 
     private MovimientosAhorroDTO mapToDTO (MovimientosAhorro movimientosAhorro){
-        MovimientosAhorroDTO movimientosAhorroDTO = new MovimientosAhorroDTO(movimientosAhorro.getFecha().toString(),
-                movimientosAhorro.getMonto());
+        MovimientosAhorroDTO movimientosAhorroDTO = new MovimientosAhorroDTO(movimientosAhorro.getId(), movimientosAhorro.getFecha().toString(), movimientosAhorro.getMonto(), movimientosAhorro.getPersona().getDni(), movimientosAhorro.getObjetivo().getId());
 
         return movimientosAhorroDTO;
     }
