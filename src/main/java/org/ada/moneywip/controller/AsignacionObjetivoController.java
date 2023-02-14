@@ -18,13 +18,12 @@ import java.util.Map;
 
         private final AsignacionObjetivoService asignacionObjetivoService;
 
-
         public AsignacionObjetivoController(AsignacionObjetivoService asignacionObjetivoService) {
             this.asignacionObjetivoService = asignacionObjetivoService;
         }
 
     @PostMapping
-    public ResponseEntity create (@RequestBody AsignacionObjetivoDTO asignacionObjetivoDTO, @PathVariable String personaDni){
+    public ResponseEntity create (@RequestBody AsignacionObjetivoDTO asignacionObjetivoDTO){
         AsignacionObjetivoDTO createdAsignacionObjetivoDTO = asignacionObjetivoService.create(asignacionObjetivoDTO);
         return new ResponseEntity(asignacionObjetivoDTO.getId(), HttpStatus.CREATED);
     }

@@ -46,6 +46,7 @@ public class MovimientosAhorrosService {
             throw new ResourceNotFoundException();
         }
     }
+
     public void modify (Integer movimientosAhorroId, Map<String, Object> camposAModificar){
         Optional<MovimientosAhorro> movimientosAhorro= movimientosAhorroRepository.findById(movimientosAhorroId);
         if (movimientosAhorro.isEmpty()){
@@ -55,6 +56,7 @@ public class MovimientosAhorrosService {
         camposAModificar.forEach((key,value) -> movimientosAhorroToModify.modifyAttributeValue(key, value));
         movimientosAhorroRepository.save(movimientosAhorroToModify);
     }
+
     public MovimientosAhorroDTO retrieveById (Integer movimientosAhorroId){
         Optional<MovimientosAhorro> movimientosAhorro = movimientosAhorroRepository.findById(movimientosAhorroId);
         if (movimientosAhorro.isEmpty ()){
@@ -66,13 +68,12 @@ public class MovimientosAhorrosService {
 
     private MovimientosAhorro mapToEntity (MovimientosAhorroDTO movimientosAhorroDTO, Persona persona, Objetivo objetivo){
         MovimientosAhorro movimientosAhorro = new MovimientosAhorro(movimientosAhorroDTO.getId(),LocalDate.parse(movimientosAhorroDTO.getFecha(),DATE_TIME_FORMATTER),
-                movimientosAhorroDTO.getMonto(), persona,objetivo);
+                movimientosAhorroDTO.getMonto(), persona, objetivo);
         return movimientosAhorro;
     }
 
     private MovimientosAhorroDTO mapToDTO (MovimientosAhorro movimientosAhorro){
         MovimientosAhorroDTO movimientosAhorroDTO = new MovimientosAhorroDTO(movimientosAhorro.getId(), movimientosAhorro.getFecha().toString(), movimientosAhorro.getMonto(), movimientosAhorro.getPersona().getDni(), movimientosAhorro.getObjetivo().getId());
-
         return movimientosAhorroDTO;
     }
 }

@@ -28,10 +28,10 @@ public class MovimientosAhorroController {
     @GetMapping("/{id}")
     public ResponseEntity retrieveById(@PathVariable Integer id) {
         MovimientosAhorroDTO movimientosAhorroDTO = movimientosAhorroService.retrieveById(id);
-        return new ResponseEntity(id, HttpStatus.OK);
+        return new ResponseEntity(movimientosAhorroDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{Id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {
         movimientosAhorroService.delete(id);
         return new ResponseEntity(HttpStatus.OK);

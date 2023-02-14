@@ -24,7 +24,7 @@ public class ObjetivoService {
         Objetivo objetivo = mapToEntity(objetivoDTO);
         checkForExistingObjetivo(objetivo.getObjetivo());
         objetivo = objetivoRepository.save(objetivo);
-
+        objetivoDTO.setId(objetivo.getId());
         return objetivoDTO;
     }
 
@@ -66,8 +66,7 @@ public class ObjetivoService {
     }
 
     private ObjetivoDTO mapToDTO(Objetivo objetivo) {
-        ObjetivoDTO objetivoDTO = new ObjetivoDTO(objetivo.getObjetivo(), objetivo.getFechaObj().toString(), objetivo.getMonto(), objetivo.getActivo());
+        ObjetivoDTO objetivoDTO = new ObjetivoDTO(objetivo.getId(), objetivo.getObjetivo(), objetivo.getFechaObj().toString(), objetivo.getMonto(), objetivo.getActivo());
         return objetivoDTO;
     }
-
 }

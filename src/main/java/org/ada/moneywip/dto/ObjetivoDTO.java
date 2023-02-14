@@ -10,7 +10,8 @@ public class ObjetivoDTO {
     private Double monto;
     private Boolean activo;
 
-    public ObjetivoDTO(String objetivo, String fechaObj, Double monto, Boolean activo) {
+    public ObjetivoDTO(Integer id, String objetivo, String fechaObj, Double monto, Boolean activo) {
+        this.id = id;
         this.objetivo = objetivo;
         this.fechaObj = fechaObj;
         this.monto = monto;
@@ -35,5 +36,9 @@ public class ObjetivoDTO {
 
     public Boolean getActivo() {
         return activo;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
