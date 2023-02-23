@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -67,6 +68,16 @@ public class EgresoService {
             throw new ResourceNotFoundException();
         }
         return mapToDTO(egreso.get());
+    }
+
+    public List<EgresoDTO> resumenEgresos (String personaDni, String fechaInicio, String fechaFinal) {
+        Optional<Persona> persona = personaRepository.findById(personaDni);
+        if(persona.isEmpty()){
+            throw new ResourceNotFoundException();
+        }
+        //Validar fechas: cronologicamente, y máximo 2023 en adelante
+
+
     }
 
     private Egreso mapToEntity (EgresoDTO egresoDTO, Persona persona, TipoEgreso tipoEgreso){
