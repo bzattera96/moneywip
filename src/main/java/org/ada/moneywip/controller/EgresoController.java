@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.net.PortUnreachableException;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -21,6 +22,7 @@ import java.util.Map;
     public EgresoController(EgresoService egresoService){
     this.egresoService = egresoService;
     }
+
    @PostMapping
     public ResponseEntity create (@RequestBody EgresoDTO egresoDTO , @PathVariable String personaDni){
         EgresoDTO createdEgresoDTO= egresoService.create(egresoDTO);
@@ -43,5 +45,9 @@ import java.util.Map;
         return new ResponseEntity(HttpStatus.OK);
     }
 
-
+    @GetMapping ("/{egresoId}/{fechaInicio}/{fechaFinal}")
+    public ResponseEntity resumenEgresos (@PathVariable String personaDni, String fechaInicio, String fechaFinal) {
+        List<EgresoDTO> resumenEgresos = egresoService.resumenEgresos(personaDni, fechaInicio, fechaFinal);
+        return new ResponseEntity(resumenEgresos, HttpStatus.OK);
+    }
 }
